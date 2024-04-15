@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<header th:fragment="header" class="header_section">
+    <div class="container-fluid">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="/">홈페이지</a>
+            <a href="/write">게시판 작성하기</a>
+            <a href="/list">게시판 목록</a>
+        </div>
+        <div class="header_taital_main">
+            <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
+            <h6 class="call_text"><img src="images/call-icon.png"><span class="padding_left_10"><a href="/">Call : +01
+                     1234567890</a></span></h6>
+            <h6 class="call_text"><img src="images/mail-icon.png"><span class="padding_left_10"><a href="/">Demo@gmail.com</a></span></h6>
+            <div class="login_text">
+                <ul class="list-inline mb-0 d-block d-lg-none">
+                    <li class="list-inline-item">
+                        <a th:if="${session.name == null}" href="/login" class="btn btn-dark" style="color:white;">로그인</a>
+                        <span th:unless="${session.name == null}">
+                                    <a href="/" th:text="${session.name} + '님'"></a>
+                                    <a href="/logout" class="btn btn-dark" style="color:white;">로그아웃</a>
+                                </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-4 col-6">
+                <div class="header-socials-2 text-right d-none d-lg-block">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a th:if="${session.name == null}" href="/login" class="btn btn-dark" style="color:white;">로그인</a>
+                            <span th:unless="${session.name == null}">
+                                    <a href="/" th:text="${session.name} + '님'"></a>
+                                    <a href="/logout" class="btn btn-dark" style="color:white;">로그아웃</a>
+                                </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+</head>
+<body>
+<p>안녕하세요~ 나는 바보입니다.</p>
+<p>안녕하세요~ 나는 바보입니다.</p>
+<p>안녕하세요~~~ 나는 바보입니다.</p>
+<!-- 태그내부 텍스트를 출력 -->
+<p th:text="${data}"></p>
+<p th:text="${result} + '년 입니다'"></p>
+<!-- th:text 를 사용하지 않고 값을 찍을떄 -->
+
+[[${data}]]
+<p>[[${result} + '년']]</p>
+</body>
+</html>
