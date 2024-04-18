@@ -31,7 +31,7 @@ public class PostController {
     @Autowired
     PhotoUtil photoUtil;
 
-    @GetMapping(value = "/") //
+    @GetMapping(value = "/")
     public String index() {
         return "index";
     }
