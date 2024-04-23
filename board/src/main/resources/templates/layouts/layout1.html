@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <!-- Responsive-->
+    <link rel="stylesheet" th:href="@{/css/responsive.css}">
+
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/jquery.mCustomScrollbar.min.css}">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" th:href="@{https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css}">
+    <!-- fonts -->
+    <link th:href="@{https://fonts.googleapis.com/css?family=DM+Sans:400,700|Poppins:400,700&display=swap}" rel="stylesheet">
+
+    <th:block layout:fragment="css">
+    </th:block>
+</head>
+<body>
+<div th:replace="fragments/header::header"></div>
+<div layout:fragment="content" class="content"></div>
+<div th:replace="fragments/footer::footer"></div>
+
+<!-- Javascript files-->
+<script th:src="@{/js/jquery.min.js}"></script>
+
+<script th:src="@{/js/popper.min.js}"></script>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/plugin.js}"></script>
+<!-- sidebar -->
+<script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+<script th:src="@{/js/custom.js}"></script>
+<!-- javascript -->
+<th:block layout:fragment="script"></th:block>
+<script>
+    function openNav() {
+       document.getElementById("mySidenav").style.width = "100%";
+    }
+
+    function closeNav() {
+       document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+</body>
+</html>
