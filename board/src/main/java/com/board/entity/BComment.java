@@ -9,11 +9,11 @@ import lombok.ToString;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Comment")
+@Table(name = "comment")
 @Getter
 @Setter
 @ToString
-public class Comment {
+public class BComment {
 
     @Id //PK지정
     @Column(name = "comment_id")
