@@ -19,27 +19,6 @@ public class MemberController {
     private final MemberService memberService;
 
 
-    //목록
-    @GetMapping(value = "/post/list") //localhost/members/qa
-    public String list() {
-        return "post/list";
-    }
-
-    @GetMapping(value = "/post/rewrite") //localhost/members/qa
-    public String rewrite() {
-        return "post/rewrite";
-    }
-
-    @GetMapping(value = "/post/view") //localhost/members/qa
-    public String view() {
-        return "post/view";
-    }
-
-    @GetMapping(value = "/post/write") //localhost/members/qa
-    public String write() {
-        return "post/write";
-    }
-
     //로그인 화면
     @GetMapping(value = "/members/login") //localhost/members/login
     public String loginMember() {

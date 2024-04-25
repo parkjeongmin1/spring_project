@@ -1,7 +1,6 @@
 package com.board.entity;
 
 
-import com.board.constant.Role;
 import com.board.dto.MemberFormDto;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -28,9 +27,6 @@ public class Member {
 
     private String password;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
     public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
         //패스워드 암호화
         String password = passwordEncoder.encode(memberFormDto.getPassword());
@@ -41,10 +37,6 @@ public class Member {
         member.setName(memberFormDto.getName());
         member.setEmail(memberFormDto.getEmail());
         member.setPassword(password); //DB에는 최종적으로 암호화된 패스워드가 저장되도록 한다.
-
-        // 개발자가 지정하는 정보.
-        member.setRole(Role.USER); // 일반 사용자로 가입한다.
-        // member.setRole(Role.ADMIN) // 관리자로 가입한다.
 
         return member;
     }

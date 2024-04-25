@@ -22,7 +22,7 @@ public class BComment {
 
     private String content;
 
-    private LocalDateTime reg_date;
+    private LocalDateTime regDate;
 
     @ManyToOne(fetch = FetchType.LAZY) //ERD에서 까치발이 많은쪽에 작성
     @JoinColumn(name = "board_id") //FK 키

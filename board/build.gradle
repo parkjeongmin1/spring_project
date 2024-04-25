@@ -56,3 +56,9 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+def generated = 'src/main/generated' //Q클래스들 만들어준다 (clean / build) 다시해준다
+
+clean {
+	delete file (generated)
+}

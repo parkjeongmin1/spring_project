@@ -1,6 +1,5 @@
 package com.shopmax.service;
 
-
 import com.shopmax.entity.Member;
 import com.shopmax.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,15 +11,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional //하나의 메소드마다 트랜잭션으로 묶인다 (DB Exception 혹은 다른 Exception 발생시 롤백)
-@RequiredArgsConstructor //생성자 주입을 임의의 코드없이 자동으로 설정해주는 어노테이션이다 (@Autowired)
+@RequiredArgsConstructor //상수 의존성 주입
+@Transactional // 하나의 메소드마다 트랜잭션으로 묶인다. (DB Exception 혹은 다른 Exception 발생 시 롤백
 public class MemberService implements UserDetailsService {
     private final MemberRepository memberRepository;
-
     //회원가입
     public Member saveMember(Member member) {
         validateDuplicateMember(member);
-        return memberRepository.save(member); //회원정보 insert(삽입) 후 해당 회원정보 다시 리턴
+        return memberRepository.save(member); //회원정보 insert후 해당 회원정보 다시 리턴
     }
 
     //회원 중복체크
@@ -28,7 +26,7 @@ public class MemberService implements UserDetailsService {
         Member findMember = memberRepository.findByEmail(member.getEmail());
 
         if (findMember != null) {
-            throw new IllegalStateException("이미 가입된 회원입니다.");
+            throw new IllegalStateException("이미 가입된 이메일입니다.");
         }
     }
 
@@ -37,7 +35,7 @@ public class MemberService implements UserDetailsService {
         //해당 email 계정을 가진 사용자가 있는지 확인
         Member member = memberRepository.findByEmail(email);
 
-        if (member == null) { //사용자가 없다면
+        if(member == null) { //사용자가 없다면
             throw new UsernameNotFoundException(email);
         }
 

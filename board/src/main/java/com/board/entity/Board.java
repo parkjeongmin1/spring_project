@@ -25,9 +25,9 @@ public class Board {
     @Column(columnDefinition = "longtext") //타입을 longtext 로 변경
     private String content;
 
-    private LocalDateTime reg_date;
+    private LocalDateTime regDate;
 
-    private LocalDateTime update_date;
+    private LocalDateTime updateDate;
 
     @ManyToOne(fetch = FetchType.LAZY)//ERD에서 까치발이 많은쪽에 작성
     @JoinColumn(name = "member_id")//FK 키

@@ -1,17 +1,18 @@
 package com.shopmax.entity;
 
 import com.shopmax.constant.ItemSellStatus;
+import com.shopmax.dto.ItemFormDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "item")
+@Table(name="item")
 @Getter
 @Setter
 @ToString
-public class Item extends BaseEntity{
+public class Item extends BaseEntity  {
     @Id
     @Column(name="item_id") //테이블로 생성될때 컬럼이름을 지정해준다
     @GeneratedValue(strategy = GenerationType.IDENTITY) //기본키를 자동으로 생성해주는 전략 사용
@@ -32,4 +33,15 @@ public class Item extends BaseEntity{
 
     @Enumerated(EnumType.STRING) //enum의 이름을 DB의 저장
     private ItemSellStatus itemSellStatus; //판매상태(SELL, SOLD_OUT) -> item_sell_status
+
+
+    //item엔티티 수정
+    public void updateItem(ItemFormDto itemFormDto) {
+        this.itemNm = itemFormDto.getItemNm();
+        this.price = itemFormDto.getPrice();
+        this.stockNumber = itemFormDto.getStockNumber();
+        this.itemDetail = itemFormDto.getItemDetail();
+        this.itemSellStatus = itemFormDto.getItemSellStatus();
+    }
+
 }

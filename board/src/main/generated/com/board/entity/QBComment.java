@@ -30,7 +30,7 @@ public class QBComment extends EntityPathBase<BComment> {
 
     public final QMember member;
 
-    public final DateTimePath<java.time.LocalDateTime> reg_date = createDateTime("reg_date", java.time.LocalDateTime.class);
+    public final DateTimePath<java.time.LocalDateTime> regDate = createDateTime("regDate", java.time.LocalDateTime.class);
 
     public QBComment(String variable) {
         this(BComment.class, forVariable(variable), INITS);

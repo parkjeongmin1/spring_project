@@ -24,7 +24,7 @@ public class SecurityConfig {
                         .requestMatchers("/", "/members/**", "/item/**").permitAll()
                         .requestMatchers("/favicon.ico", "/error").permitAll()
                         //관리자만 접근가능하도록 설정(인가)
-                        .requestMatchers("/admin/**").hasRole("ADMIN") //hasRole: 관리자인지 회원이지 구분함.
+                        //.requestMatchers("/admin/**").hasRole("ADMIN") //hasRole: 관리자인지 회원이지 구분함.
                         //그 외 페이지는 모두 로그인(인증)을 해야한다.
                         .anyRequest().authenticated() //CustomAuthenticationEntryPoint 클래스에 있는 commence() 메소드를 실행
                 )

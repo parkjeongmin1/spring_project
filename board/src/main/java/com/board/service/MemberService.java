@@ -1,7 +1,9 @@
 package com.board.service;
 
 
+import com.board.dto.PostFormDto;
 import com.board.entity.Member;
+import com.board.entity.Post;
 import com.board.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
@@ -10,6 +12,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @Service
 @Transactional //하나의 메소드마다 트랜잭션으로 묶인다 (DB Exception 혹은 다른 Exception 발생시 롤백)
@@ -44,7 +49,8 @@ public class MemberService implements UserDetailsService {
         return User.builder()
                 .username(member.getEmail())
                 .password(member.getPassword())
-                .roles(member.getRole().toString())
                 .build();
     }
+
+
 }
