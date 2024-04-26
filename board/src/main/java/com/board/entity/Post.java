@@ -1,5 +1,6 @@
 package com.board.entity;
 
+import com.board.dto.PostFormDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Post {
+public class Post extends BaseEntity {
 
 
     @Id
@@ -26,4 +27,10 @@ public class Post {
 
     @Column(nullable = false)
     private String content;
+
+    public void updatePost(PostFormDto postFormDto){
+        this.title = postFormDto.getTitle();
+        this.category = postFormDto.getCategory();
+        this.content = postFormDto.getContent();
+    }
 }

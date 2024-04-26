@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-public class Board {
+public class Board extends BaseEntity{
     @Id //PK지정
     @Column(name = "board_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)//기본키를 자동으로 생성해줌

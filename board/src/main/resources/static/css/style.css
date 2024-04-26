@@ -795,3 +795,11 @@ input.Enter_text::placeholder {
 .margin_top_90 {
 	margin-top: 90px;
 }
+
+.form-control {
+  height: 43px; }
+  .form-control:active, .form-control:focus {
+    border-color: #ee4266; }
+  .form-control:hover, .form-control:active, .form-control:focus {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important; }
