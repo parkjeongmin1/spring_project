@@ -9,4 +9,5 @@ import org.springframework.data.domain.Pageable;
 public interface PostRepositoryCustom {
     Page<Post> getAdminPostPage(PostSearhDto postSearhDto, Pageable pageable);
 
+    Page<MainPostDto> getMainPostPage(PostSearhDto postSearchDto, Pageable pageable);
 }

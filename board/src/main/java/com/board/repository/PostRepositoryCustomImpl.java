@@ -70,6 +70,11 @@ public class PostRepositoryCustomImpl implements PostRepositoryCustom{
         return new PageImpl<>(content, pageable, total);
     }
 
+    @Override
+    public Page<MainPostDto> getMainPostPage(PostSearhDto postSearchDto, Pageable pageable) {
+        return null;
+    }
+
     private  BooleanExpression postTitleLike(String searchQuery){
         return StringUtils.isEmpty(searchQuery)  ? null : QPost.post.title.like("%"+searchQuery+"%");
     }

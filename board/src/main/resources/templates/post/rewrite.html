@@ -26,9 +26,9 @@
                 <div class="col-md-12">
                     <h2 class="h3 mb-3 text-black">포스트 수정</h2>
                     <div class="p-3 p-lg-5 border">
-                        <form role="form" th:action="@{'/post/rewrite/' + ${postFormDto.id}}" method="post" enctype="multipart/form-data"
+                        <form role="form" th:action="@{'/post/rewrite/' + ${postId}}" method="post" enctype="multipart/form-data"
                               name="postForm" th:object="${postFormDto}">
-                            <input type="hidden" />
+                            <input type="hidden" th:field="*{id}"/>
 
                             <div class="form-group row">
                                 <div class="col-md-12">
@@ -50,7 +50,7 @@
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <label th:for="content" class="text-black">내용</label>
-                                    <input type="text" class="form-control" th:field="*{content}" onkeyup="inputNumberFormat(this)"/>
+                                    <input type="text" class="form-control" th:field="*{content}"/>
                                     <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="fieldError">Incorrect Data</p>
                                 </div>
                             </div>

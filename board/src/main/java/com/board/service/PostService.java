@@ -2,6 +2,7 @@ package com.board.service;
 
 import com.board.dto.MainPostDto;
 import com.board.dto.PostFormDto;
+import com.board.dto.PostRankDto;
 import com.board.dto.PostSearhDto;
 import com.board.entity.Post;
 import com.board.repository.PostRepository;
@@ -51,5 +52,12 @@ public class PostService {
         return postPage;
   }
 
+
+  public Page<MainPostDto> getMainPostPage(PostSearhDto postSearhDto, Pageable pageable){
+        Page<MainPostDto> mainPostDtoPage = postRepository.getMainPostPage(postSearhDto, pageable);
+
+        return mainPostDtoPage;
+
+  }
 
 }
